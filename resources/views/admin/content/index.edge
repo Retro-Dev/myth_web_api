@@ -1,0 +1,47 @@
+@layout('admin/master')
+@section('content')
+  @section('stylesheets')
+    {{ style('admin/assets/lib/datatables/jquery.dataTables.min.css') }}
+    {{ style('admin/assets/lib/datatables/responsive.bootstrap.min.css') }}
+  @endsection
+  <section class="main-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @if(hasErrorFor('errors'))
+              @!component('admin.flash-errors', {errors: getErrorFor('errors')})
+            @endif
+            @if(hasErrorFor('error'))
+              @!component('admin.flash-error', error = getErrorFor('error') )
+            @endif
+            @if(flashMessage('success'))
+              @!component('admin.flash-success', success = flashMessage('success') )
+            @endif
+            <div class="card">
+                <div class="card-header card-default">
+                    Content Listing
+                </div>
+                <div class="card-body">
+                  <table id="datatable" class="table table-striped dt-responsive nowrap">
+                      <thead>
+                          <tr>
+                              <th>Content Type</th>
+                              <th>Created At</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('admin.footer')
+  </section>
+  @section('scripts')
+    <script>
+      let ajax_listing_url = "{{ route('admin.content.ajaxlsiting') }}";
+    </script>
+    {{ script('admin/assets/lib/datatables/jquery.dataTables.min.js') }}
+    {{ script('admin/assets/lib/datatables/dataTables.responsive.min.js') }}
+    {{ script('admin/assets/js/ajax-datatable.js') }}
+  @endsection
+@endsection

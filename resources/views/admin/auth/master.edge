@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{{ applicationSetting.application_name }} | Admin Panel</title>
+      <link rel="icon" type="image/png" sizes="16x16" href="{{ assetsUrl(applicationSetting.favicon) }}">
+      {{ style('admin/assets/lib/bootstrap/css/bootstrap.min.css') }}
+      {{ style('admin/assets/scss/style.css') }}
+      <style type="text/css">
+          html,body{
+              height: 100%;
+          }
+      </style>
+    </head>
+    <body class="bg-light">
+        <div class="misc-wrapper">
+            <div class="misc-content">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-6">
+                              <div class="misc-header text-center">
+								                  <img title="{{ applicationSetting.app_name }}" alt="{{ applicationSetting.app_name }}" src="{{ assetsUrl(applicationSetting.logo) }}" class="toggle-none hidden-xs">
+                              </div>
+                            <div class="misc-box">
+                                @if(hasErrorFor('errors'))
+                                  @!component('admin.flash-errors', {errors: getErrorFor('errors')})
+                                @endif
+                                @if(hasErrorFor('error'))
+                                  @!component('admin.flash-error', error = getErrorFor('error') )
+                                @endif
+                                @if(flashMessage('success'))
+                                  @!component('admin.flash-success', success = flashMessage('success') )
+                                @endif
+                                @!section('content')
+                            </div>
+                            <div class="text-center misc-footer">
+                               <p>Copyright &copy; {{ currentYear }} {{ applicationSetting.application_name }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

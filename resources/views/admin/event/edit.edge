@@ -1,0 +1,96 @@
+@layout('admin/master')
+@section('content')
+  <section class="main-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @if(hasErrorFor('errors'))
+              @!component('admin.flash-errors', {errors: getErrorFor('errors')})
+            @endif
+            @if(hasErrorFor('error'))
+              @!component('admin.flash-error', error = getErrorFor('error') )
+            @endif
+            @if(flashMessage('success'))
+              @!component('admin.flash-success', success = flashMessage('success') )
+            @endif
+            <div class="card">
+                <!--  <div class="card-header card-default">
+                    <div class="float-right">
+                      <a href="{{ route('event.create') }}" class="btn btn-primary btn-rounded box-shadow btn-icon"><i class="fa fa-plus"></i> Add Event</a>
+                    </div>
+                    Edit Event
+                </div>  -->
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {{ csrfField() }}
+                        <input type="hidden" name="slug" value="{{ event.slug }}">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <textarea required maxlength="30" class="form-control" name="title" id="" cols="30" rows="10">{{ event.title }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea required class="form-control" name="description" id="" cols="30" rows="10">{{ event.description }}</textarea>
+                        </div>
+                        <div class="form-group">
+                          <label>Image</label>
+                          <input class="form-control" type="file" name="file_url" id="" cols="30" rows="10">
+                      </div>
+                      @if(event.file_type == 'image')
+                      <div class='d-flex flex-column'>
+                        <label>Picture</label>
+                        <img src="{{ event.file_url }}" alt="event" width="100" height="100">
+                      </div>                          
+                      @endif
+                      @if(event.file_type == 'video')
+                      <div class='d-flex flex-column'>
+                        <video width="400" controls>
+                          <source src="{{ event.file_url }}" type="video/mp4">
+                          <source src="{{ event.file_url }}" type="video/ogg">
+                          Your browser does not support HTML video.
+                        </video>
+                      </div>                          
+                      @endif
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea required class="form-control" name="address" id="" cols="30" rows="10">{{ event.address }}</textarea>
+                        </div>
+                        <div class="form-group">
+                          <label>Date (date and time):</label>
+                          <input type="datetime-local" id="" name="date_time">                            
+                      </div>
+                        <div>
+                            <label>Date</label>
+                            <textarea required class="form-control" name="date" id="" cols="30" rows="10">{{ event.date }}</textarea>
+                        </div>
+                        <div>
+                            <label>Time</label>
+                            <textarea required class="form-control" name="time" id="" cols="30" rows="10">{{ event.time }}</textarea>
+                        </div>
+                        <div class="form-group">
+                          <label>Status</label>
+                          <select required name="status" class="form-control">
+                              <option {{ event.status == true ? 'selected' : '' }} value="1">Active</option>
+                              <option {{ event.status == false ? 'selected' : '' }} value="0">Disabled</option>
+                          </select>
+                      </div>
+                        <div class="form-group">
+                          <label>Type</label>
+                          <select required name="type" class="form-control">
+                              <option {{ event.type == '0' ? 'selected' : '' }} value="0">Event</option>
+                              <option {{ event.type == '1' ? 'selected' : '' }} value="0">Ceremony</option>
+                              <option {{ event.type == '2' ? 'selected' : '' }} value="0">Graduation</option>
+                          </select>
+                      </div>
+                        <div class="form-group">
+                            <div class="buttons">
+                                <button class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('admin.footer')
+  </section>
+@endsection

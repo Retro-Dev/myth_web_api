@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello Adonis</title>
+  <!-- includes the Braintree JS client SDK -->
+  <script src="https://js.braintreegateway.com/web/dropin/1.33.7/js/dropin.min.js"></script>
+  <!-- includes jQuery -->
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="dropin-wrapper">
+    <div id="checkout-message"></div>
+    <div id="dropin-container"></div>
+    <button id="submit-button">Submit payment</button>
+  </div>
+  <script>
+    var button = document.querySelector('#submit-button');
+    braintree.dropin.create({
+      // Insert your tokenization key here
+      authorization: 'sandbox_pg5c9hzx_qjv79yz29bkwmycn',
+      container: '#dropin-container'
+    }, function (createErr, instance) {
+      button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+          // When the user clicks on the 'Submit payment' button this code will send the
+          // encrypted payment information in a variable called a payment method nonce
+          console.log('card token: ', payload.nonce);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

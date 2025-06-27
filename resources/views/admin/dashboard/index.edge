@@ -1,0 +1,177 @@
+@layout('admin/master')
+@section('content')
+    @section('stylesheets')
+      {{ style('admin/assets/lib/vectormap/jquery-jvectormap-2.0.2.css') }}
+      {{ style('admin/assets/lib/chart-c3/c3.min.css') }}
+      {{ style('admin/assets/lib/chartjs/chartjs-sass-default.css') }}
+      <style>
+            .show{
+                display: block;
+            }
+            .hide{
+                display: none;
+            }
+      </style>
+    @endsection
+    <section class="main-content">
+        <div class="row">
+            <div class="col">
+                <div class="widget bg-light padding-0">
+                    <div class="row row-table">
+                        <div class="col-xs-4 text-center padding-15 bg-teal">
+                            <em class="icon-lock-open fa-3x"></em>
+                        </div>
+                        <div class="col-xs-8 padding-15 text-right">
+                            <h2 class="mv-0">{{ subscribed_users || 0 }}</h2>
+                            <div class="margin-b-0 text-muted">Premium Users</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  <div class="col">
+                <div class="widget bg-light padding-0">
+                    <div class="row row-table">
+                        <div class="col-xs-4 text-center padding-15 bg-danger">
+                            <em class="icon-ban fa-3x"></em>
+                        </div>
+                        <div class="col-xs-8 padding-15 text-right">
+                            <h2 class="mv-0">{{ pending_users || 0 }}</h2>
+                            <div class="margin-b-0 text-muted">Pending Users</div>
+                        </div>
+                    </div>
+                </div>
+            </div>  -->
+            <div class="col">
+                <div class="widget bg-light padding-0">
+                    <div class="row row-table">
+                        <div class="col-xs-4 text-center padding-15 bg-success">
+                            <em class="icon-check fa-3x"></em>
+                        </div>
+                        <div class="col-xs-8 padding-15 text-right">
+                            <h2 class="mv-0">{{ approved_users  || 0}}</h2>
+                            <div class="margin-b-0 text-muted">Total Users</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+              <div class="card center-text-header">
+                <div class="d-flex align-items-center justify-content-between w-100">
+                    <div class="card-header card-default ">
+                        Line type chart
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group align-items-center d-flex ">
+                            <label class="select-span" for="">Filter By</label>
+                            <select class="form-control" id="selectOption">
+                                <option {{ type == 'daily' ? 'selected' : '' }} value="daily">Daily</option>
+                                <option {{ type == 'weekly' ? 'selected' : '' }} value="weekly">Weekly</option>
+                                <option  {{ type == 'yearly' ? 'selected' : '' }} value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                       <div class="ml-3">
+                            <div id="weekly" class="card-header card-default hide" style="float: right;">
+                                <input name="search" placeholder="Search by weekly" type="text" class="dateweekly form-control" style="width: 200px" />
+                            </div>
+                            <div id="yearly" class="card-header card-default hide" style="float: right;">
+                                <form method="get">
+                                <input name="type" type="hidden" value="yearly" />
+                                <input name="search" placeholder="Search by year" type="text" class="date form-control" style="width: 200px" />
+                                <button type="submit" class="btn btn-primary btn-rounded box-shadow btn-icon"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                  
+                  <div class="card-body">
+                      <canvas id="myChart" ></canvas>
+                  </div>
+              </div>
+          </div>
+      </div>
+        @include('admin.footer')
+    </section>
+    @section('scripts')
+      {{ script('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js') }}
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+      <script>
+
+        function userGraph(value) {
+
+            if(value == 'yearly'){
+                $('#'+value).removeClass('hide');
+                $('#'+value).addClass('show');
+                $('#weekly').addClass('hide');
+            }else if(value == 'weekly'){
+                $('#'+value).removeClass('hide');
+                $('#'+value).addClass('show');
+                $('#yearly').addClass('hide');
+            }else{
+                $('#weekly').addClass('hide');
+                $('#yearly').addClass('hide');
+                window.location.href = '/admin/dashboard?type='+value;
+            }
+        }
+
+
+        $(document).ready(function(){
+            if('{{type}}' == 'weekly'){
+                $('#weekly').removeClass('hide');
+                $('#weekly').addClass('show');
+                $('#yearly').addClass('hide');
+            } else if('{{type}}' == 'yearly'){
+                $('#yearly').removeClass('hide');
+                $('#yearly').addClass('show');
+                $('#weekly').addClass('hide');
+            }
+        });
+
+        $("#selectOption").change(function(){
+            let value = $(this).val();
+            userGraph(value);
+        });
+
+        let months='{{users.month}}';
+        
+        let users='{{users.user_count}}';
+        let labels = months.split(',')
+
+        labels = labels[0] == 'undefined' ? ['No Data Available'] : labels
+        
+
+        // leabels = months ? months.split(','): [];
+        var xValues = [100,200,300,400,500,600,700,800,900,1000];
+console.log(labels)
+        new Chart("myChart", {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [{
+              data: users.split(','),
+              borderColor: "#4b71fa",
+              fill: false
+            }]
+          },
+          options: {
+            legend: {display: false}
+          }
+        });
+        $(".date").datepicker({
+		format: "yyyy",
+        viewMode: "years",
+        minViewMode: "years",
+	    });
+       
+        $('.dateweekly').daterangepicker({
+                opens: 'left'
+            }, function(start, end, label) {
+                window.location.href = '/admin/dashboard?type=weekly&start_date='+start.format('YYYY-MM-DD')+'&end_date='+end.format('YYYY-MM-DD');
+                // console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+        </script>
+    @endsection
+@endsection

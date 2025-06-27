@@ -1,0 +1,63 @@
+@layout('admin/master')
+@section('content')
+  <section class="main-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @if(hasErrorFor('errors'))
+              @!component('admin.flash-errors', {errors: getErrorFor('errors')})
+            @endif
+            @if(hasErrorFor('error'))
+              @!component('admin.flash-error', error = getErrorFor('error') )
+            @endif
+            @if(flashMessage('success'))
+              @!component('admin.flash-success', success = flashMessage('success') )
+            @endif
+            <div class="card">
+                <div class="card-header card-default">
+                    Add Event
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('event.store') }}" method="post" enctype="multipart/form-data">
+                        {{ csrfField() }}
+                        <div class="form-group">
+                            <label>Title</label>
+                            <textarea maxlength="30" required class="form-control" name="title" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea required class="form-control" name="description" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input class="form-control" type="file" name="file_url" id="" cols="30" rows="10">
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea required class="form-control" name="address" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Date (date and time):</label>
+                            <input required type="datetime-local" id="" name="date_time">                            
+                        </div>
+
+                        <div class="form-group">
+                          <label>Type</label>
+                          <select required name="type" class="form-control">
+                              <option value="2">Graduation</option>
+                              <option value="1">Ceremony</option>
+                              <option value="0">Event</option>
+                          </select>
+                      </div>
+                        <div class="form-group">
+                            <div class="buttons">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('admin.footer')
+  </section>
+@endsection

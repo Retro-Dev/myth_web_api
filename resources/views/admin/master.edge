@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="csrf-token" content="{{ csrfToken }}">
+    <title>{{ applicationSetting.application_name }} | Admin Panel</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ assetsUrl(applicationSetting.favicon) }}">
+    {{ style('admin/assets/lib/bootstrap/css/bootstrap.min.css') }}
+    {{ style('admin/assets/lib/toast/jquery.toast.min.css') }}
+    {{ style('admin/assets/scss/style.css') }}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css">
+    <!--  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>  -->
+   
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    {{ script('https://code.jquery.com/jquery-3.6.0.min.js') }}
+    {{ script('admin/assets/lib/bootstrap/js/popper.min.js') }}
+    {{ script('admin/assets/lib/bootstrap/js/bootstrap.min.js') }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
+    @!section('stylesheet')
+    <script>
+        var base_url    = '/';
+        var current_url = '{{ url }}';
+    </script>
+</head>
+<body>
+<div id="overlay"></div>
+<div class="top-bar primary-top-bar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <a class="admin-logo" href="{{ route('admin.dashboard') }}">
+                    <h1>
+                        <img style="width: 165px;" title="{{ applicationSetting.app_name }}" alt="{{ applicationSetting.app_name }}" src="{{ assetsUrl(applicationSetting.logo) }}" class="toggle-none hidden-xs">
+                    </h1>
+                </a>
+                <div class="left-nav-toggle" >
+                    <a  href="#" class="nav-collapse"><i class="fa fa-bars"></i></a>
+                </div>
+                <div class="left-nav-collapsed" >
+                    <a  href="#" class="nav-collapsed"><i class="fa fa-bars"></i></a>
+                </div>
+                <ul class="list-inline top-right-nav">
+                    <li class="dropdown avtar-dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <img alt="" class="rounded-circle" style="object-fit: contain;" src="{{ auth.user.image_url == null ? assetsUrl('admin/assets/img/avtar-2.png') : assetsUrl(auth.user.image_url) }}" width="50" height="50">
+                            {{ auth.user.name }}
+                        </a>
+                        <ul class="dropdown-menu top-dropdown">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="icon-user"></i> Profile</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.change-password') }}"><i class="icon-lock"></i> Change Password</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.logout') }}"><i class="icon-logout"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-sidebar-nav default-navigation">
+    <div class="nano">
+        <div class="nano-content sidebar-nav">
+            <div class="card-body border-bottom text-center nav-profile">
+                <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div>
+                <img style="border-radius: 50%;width: 100px; height: 100px;object-fit: contain;" alt="profile" class="margin-b-10" src="{{ auth.user.image_url == null ? assetsUrl('admin/assets/img/avtar-2.png') : assetsUrl(auth.user.image_url) }}">
+                <p class="lead margin-b-0 toggle-none">{{ auth.user.name }}</p>
+                <p class="text-muted mv-0 toggle-none">Welcome</p>
+            </div>
+            <ul class="metisMenu nav flex-column" id="menu">
+                <li class="nav-heading"><span>MODULE</span></li>
+                <li data-type="parent" class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                        <i class="fa fa-home"></i> <span class="toggle-none">Dashboard</span>
+                    </a>
+                </li>
+                <!--  <li data-type="parent" class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.application-setting') }}">
+                        <i class="fa fa-cog"></i> <span class="toggle-none">Application Setting</span>
+                    </a>
+                </li>  -->
+                <li data-type="parent" class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.user') }}">
+                        <i class="fa fa-users"></i> <span class="toggle-none">Users Management</span>
+                    </a>
+                </li>
+                <li data-type="parent" class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.panic') }}">
+                        <i class="fa fa-exclamation-triangle"></i> <span class="toggle-none">Panics Management</span>
+                    </a>
+                </li>
+                <li data-type="parent" class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.subscription') }}">
+                        <i class="fa fa-credit-card"></i> <span class="toggle-none">Subscription Management</span>
+                    </a>
+                </li>
+                <li data-type="child" class="nav-item">
+                    <a class="nav-link"  href="javascript:void(0);" aria-expanded="false">
+                        <i class="icon-basket"></i> <span class="toggle-none">Newsfeed Management<span class="fa arrow"></span></span>
+                    </a>
+                    <ul class="nav-second-level nav flex-column" aria-expanded="false">
+                          <li class="nav-item"><a class="nav-link" href="{{ route('admin.newsfeed') }}">Newsfeed</a></li>
+                          <li class="nav-item"><a class="nav-link" href="{{ route('admin.report') }}">Report</a></li>
+                    </ul>
+                </li>
+                <li data-type="child" class="nav-item">
+                    <a class="nav-link"  href="javascript:void(0);" aria-expanded="false">
+                        <i class="icon-basket"></i> <span class="toggle-none">Directory Management<span class="fa arrow"></span></span>
+                    </a>
+                    <ul class="nav-second-level nav flex-column" aria-expanded="false">
+                          <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Category</a></li>
+                          <li class="nav-item"><a class="nav-link" href="{{ route('admin.directory') }}">Directory</a></li>
+                          <li class="nav-item"><a class="nav-link" href="{{ route('admin.directory-import') }}">Import Directory</a></li>
+                    </ul>
+                </li>
+                <li data-type="parent" class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.event') }}">
+                        <i class="fa fa-question-circle"></i> <span class="toggle-none">Event Management</span>
+                    </a>
+                </li>
+                <!--  <li data-type="parent" class="nav-item">
+                    <a class="nav-link" href="{{ route('faq.index') }}">
+                        <i class="fa fa-question-circle"></i> <span class="toggle-none">Faq Management</span>
+                    </a>
+                </li>  -->
+                <li data-type="parent" class="nav-item">
+                    <a class="nav-link" href="{{ route('content.index') }}">
+                        <i class="fa fa-edit"></i> <span class="toggle-none">Content Management</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row page-header">
+    <div class="col-lg-6 align-self-center ">
+        <h2>
+          @if(page_title)
+            {{ page_title }}
+          @endif
+        </h2>
+    </div>
+</div>
+@!section('content')
+{{ script('admin/assets/lib/pace/pace.min.js') }}
+{{ script('admin/assets/lib/jasny-bootstrap/js/jasny-bootstrap.min.js') }}
+{{ script('admin/assets/lib/slimscroll/jquery.slimscroll.min.js') }}
+{{ script('admin/assets/lib/nano-scroll/jquery.nanoscroller.min.js') }}
+{{ script('admin/assets/lib/metisMenu/metisMenu.min.js') }}
+{{ script('admin/assets/lib/toast/jquery.toast.min.js') }}
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+{{ script('admin/assets/js/custom.js') }}
+@!section('scripts')
+</body>
+</html>

@@ -1,0 +1,73 @@
+'use strict'
+
+const { first } = require("@adonisjs/lucid/src/Lucid/Model");
+const RestModel  = use('./RestModel');
+const _          = use('lodash');
+
+class [MODEL] extends RestModel {
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    static get table()
+    {
+      return "[MODEL]";
+    }
+
+    /**
+     * The table primary key.
+     *
+     * @var string
+     */
+    static get primaryKey () {
+      return 'id'
+    }
+
+    /**
+     * The field name used to set the creation timestamp (return null to disable):
+     */
+    static get createdAtColumn () {
+      return 'created_at';
+    }
+
+    /**
+     * The field name used to set the creation timestamp (return null to disable):
+     */
+    static get updatedAtColumn () {
+      return 'updated_at';
+    }
+
+    static softdelete()
+    {
+        return true;
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    static getFields()
+    {
+        return [];
+    }
+
+    /**
+     * omit fields from database results
+     */
+    static get hidden ()
+    {
+      return []
+    }
+
+    /**
+     * mention column for select query
+     */
+    static showColumns()
+    {
+        return ['*'];
+    }
+}
+module.exports = [MODEL]

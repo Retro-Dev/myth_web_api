@@ -1,0 +1,108 @@
+@layout('admin/master')
+@section('content')
+  <section class="main-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @if(hasErrorFor('errors'))
+              @!component('admin.flash-errors', {errors: getErrorFor('errors')})
+            @endif
+            @if(hasErrorFor('error'))
+              @!component('admin.flash-error', error = getErrorFor('error') )
+            @endif
+            @if(flashMessage('success'))
+              @!component('admin.flash-success', success = flashMessage('success') )
+            @endif
+            <div class="card">
+                <div class="card-header card-default">
+                    Edit Newsfeed
+                </div>
+                <div class="card-body">             
+                  <div class="row" style="text-align:center">
+                    <div class="col-sm-6">
+                        <div class='d-flex flex-row'>
+                          <label><strong>Email: </strong></label>
+                          <p>{{ post.user.email }}</p>
+                        </div>
+                        <div class='d-flex flex-row'>
+                          <label><strong>Description: </strong></label>
+                          <p>{{ post.description }}</p>
+                        </div>
+                        <div class='d-flex flex-row'>
+                          <label><strong>Total Likes: </strong></label>
+                          <p>{{ post.total_like }}</p>
+                        </div>
+                        <div class='d-flex flex-row'>
+                          <label><strong>Total Comments: </strong></label>
+                          <p>{{ post.total_comments }}</p>
+                        </div>
+                        <div class='d-flex flex-row'>
+                          <div class='d-flex flex-column'>   
+                            <label style="
+                            text-align-last: left;
+                        "><strong>Video: </strong></label>
+                            @if(post.media.length) 
+                            <div class='d-flex flex-row'>
+                              @each(media in post.media)
+                                <div class='d-flex flex-column m-1'>
+                                  <a target='_blank' href="{{ media.file_url }}" alt="myth" width="100" height="100">View</a>
+                                </div>
+                              @endeach
+                            </div>
+                            @endif                     
+                          </div>
+                        </div>  
+                        <div class='d-flex flex-row'>
+                        <div class='d-flex flex-column'>
+                          <label><strong>Comments: </strong></label>
+                        <iframe      
+                        srcdoc="<html>
+                            <body>                        
+                              @each(comment in post.comment)
+                              <label><b>Name: </b></label>
+                              {{ comment.user.name }}<br>
+                              <label><b>Comment: </b> </label>
+                              {{ comment.comment }} </br>
+                              @endeach
+                            </body>
+                          </html>">
+                      </iframe>   
+                          </div> 
+                          <div class='d-flex flex-column'>
+                            <label><strong>Liked By: </strong></label>
+                          <iframe      
+                          srcdoc="<html>
+                              <body>                        
+                                @each(like in post.like)
+                                <label><b>Name: </b></label>
+                                {{ like.user.name }}<br>
+                                @endeach
+                              </body>
+                            </html>">
+                        </iframe>   
+                            </div> 
+                            </div> 
+                      </div>                                      
+                    </div>
+                  </div>           
+                  <form method="post">
+                      {{ csrfField() }}
+                      <div class="form-group">
+                          <label>Status</label>
+                          <select required name="status" class="form-control">
+                              <option {{ post.status == 1 ? 'selected' : '' }} value="1">Active</option>
+                              <option {{ post.status == 0 ? 'selected' : '' }} value="0">Disabled</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <div class="buttons">
+                              <button class="btn btn-primary">Submit</button>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('admin.footer')
+  </section>
+@endsection

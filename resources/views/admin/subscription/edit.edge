@@ -1,0 +1,51 @@
+@layout('admin/master')
+@section('content')
+  <section class="main-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @if(hasErrorFor('errors'))
+              @!component('admin.flash-errors', {errors: getErrorFor('errors')})
+            @endif
+            @if(hasErrorFor('error'))
+              @!component('admin.flash-error', error = getErrorFor('error') )
+            @endif
+            @if(flashMessage('success'))
+              @!component('admin.flash-success', success = flashMessage('success') )
+            @endif
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class='widget white-bg friends-group clearfix'>
+                        <div class="row">
+                                    <div class="col-sm-6">
+                                        <small class="text-muted">Email address </small>
+                                        <p>{{ record.user.email }}</p> 
+                                        <small class="text-muted">Name</small>
+                                        <p>{{ record.user.name }}</p> 
+                                        <small class="text-muted">Phone no</small>
+                                        <p>{{ record.user.mobile_no }}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <small class="text-muted">Subscription Plan</small>
+                                        <p>{{ record.title }}</p>
+                                        <small class="text-muted">Gateway</small>
+                                        <p>{{ record.gateway_type }}</p>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <small class="text-muted">Subscription Date</small>
+                                                <p>{{ record.purchase_date }}</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <small class="text-muted">Subscription End</small>
+                                                <p>{{ record.expiry_date }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('admin.footer')
+  </section>
+@endsection

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Myth</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo-2.jpg">
+</head>
+<body style="background-color: #000000; margin: 0; padding: 0">
+  <div
+  style="
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+  "
+>
+  <div style="text-align: center">
+    <div style="margin-top: 30px">
+      <img
+      height="400"
+      height="400"
+        src="./images/logo-2.jpg"
+        alt=""
+      />
+    </div>
+    <h1 style="font-size: 38px; color: #fff; margin: 0; margin-top: 30px">
+      Welcome To Myth
+    </h1>
+    <!--  <h2 style="font-size: 28px; color: #fff; margin: 30px 0">
+      Your account has been Verified. / Password has been changed
+    </h2>  -->
+    <p
+      style="
+        font-size: 18px;
+        color: #fff;
+        text-decoration: underline;
+        margin: 0;
+        margin-bottom: 20px;
+      "
+    >
+      Start using app:
+    </p>
+    <div
+      style="display: flex; align-items: center; justify-content: center"
+    >
+      <div style="width: 55px; height: 64px; overflow: hidden">
+        <img
+          style="width: 100%; height: 100%"
+          src="./images/apple-icon.png"
+          alt=""
+        />
+      </div>
+      <div
+        style="
+          width: 54px;
+          height: 55px;
+          overflow: hidden;
+          margin-left: 20px;
+          margin-top: 2px;
+        "
+      >
+        <img
+          style="width: 100%; height: 100%"
+          src="./images/playstore.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+  {{ script('https://code.jquery.com/jquery-3.6.0.min.js') }}
+  {{ script('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js') }}
+  @if(flashMessage('error'))
+    <script>
+        toastr.error("{{ flashMessage('error') }}", 'Error:')
+    </script>
+  @endif
+  @if( flashMessage('success') )
+  <script>
+    toastr.success("{{ flashMessage('success') }}", 'Success:')
+  </script>
+  @endif
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "6e639041-4067-4130-8d7d-19caf2296032",
+      });
+      OneSignal.getUserId(function(userId) {
+        console.log("OneSignal User ID:", userId);
+        // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316
+      });
+    });
+  </script>
+</body>
+</html>

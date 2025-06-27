@@ -1,0 +1,114 @@
+@layout('admin/master')
+@section('content')
+  <section class="main-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @if(hasErrorFor('errors'))
+              @!component('admin.flash-errors', {errors: getErrorFor('errors')})
+            @endif
+            @if(hasErrorFor('error'))
+              @!component('admin.flash-error', error = getErrorFor('error') )
+            @endif
+            @if(flashMessage('success'))
+              @!component('admin.flash-success', success = flashMessage('success') )
+            @endif
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="widget white-bg">
+                        <div class="padding-20 text-center">
+                            <img alt="Profile Picture" height="140" width="140" class="rounded-circle mar-btm margin-b-10 circle-border " src="{{ record.user.image_url  }}">
+                            <p class="lead font-500 margin-b-0">{{ record.user.name }}</p>
+                            <p class="text-muted">User</p>
+                            <hr>
+                            <ul class="list-unstyled margin-b-0 text-center row">
+                                <li class="col-4">
+                                    <p class="text-muted text-sm margin-b-0">Name</p>
+                                    <span class="font-600">{{ record.user.name }}</span>
+                                </li>
+                                <li class="col-4">
+                                    <p class="text-muted text-sm margin-b-0">Email</p>
+                                    <span class="font-600">{{ record.user.email }}</span>
+                                </li>
+                                <li class="col-4">
+                                    <p class="text-muted text-sm margin-b-0">Phone no</p>
+                                    <span class="font-600">{{ record.user.mobile_no }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="widget white-bg">
+                            <div class="padding-20 text-center">
+                                <ul class="list-unstyled margin-b-0 text-center row">
+                                    <li class="col-4">
+                                        <p class="text-muted text-sm margin-b-0">Start Time</p>
+                                        <span class="font-600">{{ record.start_panic_time }}</span>
+                                    </li>
+                                    <li class="col-4">
+                                        <p class="text-muted text-sm margin-b-0">End Time</p>
+                                        <span class="font-600">{{ record.end_panic_time }}</span>
+                                    </li>
+                                    <li class="col-4">
+                                        <p class="text-muted text-sm margin-b-0">Stream Duration</p>
+                                        <span class="font-600">{{ record.panic_duration_minutes }} minutes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-sm-6">
+                    <div class="widget white-bg">
+                        <div class="padding-20 text-center">
+                            <ul class="list-unstyled margin-b-0 text-center row">
+                                <li class="col-6">
+                                    <p class="text-muted text-sm margin-b-0">Total Witnesses</p>
+                                    <span class="font-600">{{ record.witness_count }}</span>
+                                </li>
+                                <li class="col-6">
+                                    <p class="text-muted text-sm margin-b-0">Watch Time</p>
+                                    <span class="font-600">{{ record.watch_time }} minutes</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-default">
+                                Witness History
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Watch Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @each((witness,index) in record.witness)
+                                        <tr>
+                                            <td>{{ witness.user.name }}</td>
+                                            <td>{{ witness.user.email }}</td>
+                                            <td>{{ witness.watch_time }} minutes</td>
+                                        </tr>
+                                    @endeach
+                                </tbody>
+                            </table>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('admin.footer')
+  </section>
+@endsection

@@ -1,0 +1,1864 @@
+{
+	"info": {
+		"_postman_id": "9d62b6f9-b836-4c95-96bc-22a63228dc08",
+		"name": "AdonisJS Base Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer STnoyrRVYEXfrft/w5IfL3Ci8wl0CTnVehlNGbXx9lPMq7ia41897tx2EXeBIPnCPjvC8VeyxOr+9DodAst9e35JRzRaLGJNcOvayPynS0PAKfHNoN9DZ0ikvYQZ24XmAOZfJLGmcGcYprpXbFXE9eluoNxiNglsevRJMQXjJ5lJ6YaAYPeAC5Jg/V54lFKLcgXvleI3ELeTQKNu2mN75ifmI7BBytM8Lsf3rMTcVMsB7dL7YB4IePCk9+WZedW+uzcefJ4htbGtekLAQECLhNbN9sAo4OO2eDPat02ReuIAONRYlnV2FQh4PLtjFyxhk4Cv11G8h+sqVgJQldY/eaz+KW/3vQ9ZeU2iF+v8BMit+4opmIWlIap7TyV22rRx8oOW+ULlZmiuq0c56kGL1KkQqCIjc9HlB0LtKx1SMH2H8JyyMvaq32QsNHPWw32Cgj1NlpgPlL3ZUppG4hTzNRC3EfkdnKQUyUaMOmBTI1rHytlu15T+6WSsO/ISCJCWo1Q46YG4VwX9SMc7LayBy6NBVqQ0Tvz+MI1IhTVqVn+WrgLDeuhcy44ZcAfHHTFQfmRKCltAkV7Il9ZDQN3B+Q==",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/user",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ali Raza",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ali.raza4@yopmail.com",
+									"type": "text"
+								},
+								{
+									"key": "mobile_no",
+									"value": "1-2099216588",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin@123",
+									"type": "text"
+								},
+								{
+									"key": "device_type",
+									"value": "android",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "1234567890",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "Admin@123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Record By Slug",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "12345678",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "79efb391c61ea36ba578ff156df157c7XXOT6Q2fmAM2/hIET2PRijtifNKaW54SU60Zmf7Xwd1nitoNvdRhltmRmB5FXew+",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/user/ali-raza1261",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"ali-raza1261"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer STnoyrRVYEXfrft/w5IfL3Ci8wl0CTnVehlNGbXx9lPMq7ia41897tx2EXeBIPnCPjvC8VeyxOr+9DodAst9e35JRzRaLGJNcOvayPynS0PAKfHNoN9DZ0ikvYQZ24XmAOZfJLGmcGcYprpXbFXE9eluoNxiNglsevRJMQXjJ5lJ6YaAYPeAC5Jg/V54lFKLcgXvleI3ELeTQKNu2mN75ifmI7BBytM8Lsf3rMTcVMsB7dL7YB4IePCk9+WZedW+uzcefJ4htbGtekLAQECLhNbN9sAo4OO2eDPat02ReuIAONRYlnV2FQh4PLtjFyxhk4Cv11G8h+sqVgJQldY/eaz+KW/3vQ9ZeU2iF+v8BMit+4opmIWlIap7TyV22rRx8oOW+ULlZmiuq0c56kGL1KkQqCIjc9HlB0LtKx1SMH2H8JyyMvaq32QsNHPWw32Cgj1NlpgPlL3ZUppG4hTzNRC3EfkdnKQUyUaMOmBTI1rHytlu15T+6WSsO/ISCJCWo1Q46YG4VwX9SMc7LayBy6NBVqQ0Tvz+MI1IhTVqVn+WrgLDeuhcy44ZcAfHHTFQfmRKCltAkV7Il9ZDQN3B+Q==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "raza nasir",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"type": "file",
+									"src": "/home/ali/Pictures/out-west-female-hats-cowgirl-wallpaper-preview.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/ali-raza",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"ali-raza"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ali.raza5@yopmail.com",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin@123",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "device_type",
+									"value": "android",
+									"description": "required = ios, android, web",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "1234567890",
+									"description": "required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/login",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ali.raza5@yopmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/forgot-password",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer STnoyrRVYEXfrft/w5IfL3Ci8wl0CTnVehlNGbXx9lPMq7ia41897tx2EXeBIPnCPjvC8VeyxOr+9DodAst9e35JRzRaLGJNcOvayPynS0PAKfHNoN9DZ0ikvYQZ24XmAOZfJLGmcGcYprpXbFXE9eluoNxiNglsevRJMQXjJ5lJ6YaAYPeAC5Jg/V54lFKLcgXvleI3ELeTQKNu2mN75ifmI7BBytM8Lsf3rMTcVMsB7dL7YB4IePCk9+WZedW+uzcefJ4htbGtekLAQECLhNbN9sAo4OO2eDPat02ReuIAONRYlnV2FQh4PLtjFyxhk4Cv11G8h+sqVgJQldY/eaz+KW/3vQ9ZeU2iF+v8BMit+4opmIWlIap7TyV22rRx8oOW+ULlZmiuq0c56kGL1KkQqCIjc9HlB0LtKx1SMH2H8JyyMvaq32QsNHPWw32Cgj1NlpgPlL3ZUppG4hTzNRC3EfkdnKQUyUaMOmBTI1rHytlu15T+6WSsO/ISCJCWo1Q46YG4VwX9SMc7LayBy6NBVqQ0Tvz+MI1IhTVqVn+WrgLDeuhcy44ZcAfHHTFQfmRKCltAkV7Il9ZDQN3B+Q==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "current_password",
+									"value": "Admin@123",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "Admin@123$",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "Admin@123$",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/change-password",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer STnoyrRVYEXfrft/w5IfL3Ci8wl0CTnVehlNGbXx9lPMq7ia41897tx2EXeBIPnCPjvC8VeyxOr+9DodAst9e35JRzRaLGJNcOvayPynS0PAKfHNoN9DZ0ikvYQZ24XmAOZfJLGmcGcYprpXbFXE9eluoNxiNglsevRJMQXjJ5lJ6YaAYPeAC5Jg/V54lFKLcgXvleI3ELeTQKNu2mN75ifmI7BBytM8Lsf3rMTcVMsB7dL7YB4IePCk9+WZedW+uzcefJ4htbGtekLAQECLhNbN9sAo4OO2eDPat02ReuIAONRYlnV2FQh4PLtjFyxhk4Cv11G8h+sqVgJQldY/eaz+KW/3vQ9ZeU2iF+v8BMit+4opmIWlIap7TyV22rRx8oOW+ULlZmiuq0c56kGL1KkQqCIjc9HlB0LtKx1SMH2H8JyyMvaq32QsNHPWw32Cgj1NlpgPlL3ZUppG4hTzNRC3EfkdnKQUyUaMOmBTI1rHytlu15T+6WSsO/ISCJCWo1Q46YG4VwX9SMc7LayBy6NBVqQ0Tvz+MI1IhTVqVn+WrgLDeuhcy44ZcAfHHTFQfmRKCltAkV7Il9ZDQN3B+Q==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "device_type",
+									"value": "android",
+									"description": "required = ios, android",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "1234567890",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/logout",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Social Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ali Razaaa",
+									"description": "optional",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ali.raza3@yopmail.com",
+									"description": "optional",
+									"type": "text"
+								},
+								{
+									"key": "platform_id",
+									"value": "1234567890",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "platform_type",
+									"value": "google",
+									"description": "required = google, facebook, apple",
+									"type": "text"
+								},
+								{
+									"key": "device_type",
+									"value": "android",
+									"description": "required = android, ios, web",
+									"type": "text"
+								},
+								{
+									"key": "device_token",
+									"value": "1234567890",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"value": "https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/social-login",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"social-login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Code",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer STnoyrRVYEXfrft/w5IfL3Ci8wl0CTnVehlNGbXx9lPMq7ia41897tx2EXeBIPnCPjvC8VeyxOr+9DodAst9e35JRzRaLGJNcOvayPynS0NDb6Je03j3XsTRrjRq28qypTQPN5bjYZ7ZVN5EUm6M9r8Bs2EIEtfohXLtB+PUvgs425BtZbwAKa+Y9n9ekjdZeHedWmnLe4W9mfOj/C68I3+VrM+mnigfXEmCLgwjxQ8ApupH45C/dFEc6KHyTXPh2A8HLW6ngy9fWfTbnQYyX2fQYvJVO1gHnte8wi4QvSN3jl07ckDHdgpBTwwme2QQwlh8M8MclQAt5feCjLEG4o7K9PkcuGh+cT+ObdQPX1wwlVtQw3/fZRWALvV1I/whOcfRuBDQ3zuz3XCVysJbyg16F67OKdcCRGObhHUarnQi6+izbiZk9LQCvKntE7Nx5yuOJigD860mDxAr3JZnVAoGIdF+vuhU/uOqMowgCYaxiuX5258Tcfgv37RNRFKGmQgrGrScChwTdzHmuXw8Hz7TpiOMoxwhWVVdMaTTSrn2rOEfH3r4M8kwt87XVPCtt7MY7OgV7ZyUg+ch6I6Jig==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "3770",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/verify/code",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"verify",
+								"code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resend Code",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer STnoyrRVYEXfrft/w5IfL3Ci8wl0CTnVehlNGbXx9lPMq7ia41897tx2EXeBIPnCPjvC8VeyxOr+9DodAst9e35JRzRaLGJNcOvayPynS0NDb6Je03j3XsTRrjRq28qypTQPN5bjYZ7ZVN5EUm6M9r8Bs2EIEtfohXLtB+PUvgs425BtZbwAKa+Y9n9ekjdZeHedWmnLe4W9mfOj/C68I3+VrM+mnigfXEmCLgwjxQ8ApupH45C/dFEc6KHyTXPh2A8HLW6ngy9fWfTbnQYyX2fQYvJVO1gHnte8wi4QvSN3jl07ckDHdgpBTwwme2QQwlh8M8MclQAt5feCjLEG4o7K9PkcuGh+cT+ObdQPX1wwlVtQw3/fZRWALvV1I/whOcfRuBDQ3zuz3XCVysJbyg16F67OKdcCRGObhHUarnQi6+izbiZk9LQCvKntE7Nx5yuOJigD860mDxAr3JZnVAoGIdF+vuhU/uOqMowgCYaxiuX5258Tcfgv37RNRFKGmQgrGrScChwTdzHmuXw8Hz7TpiOMoxwhWVVdMaTTSrn2rOEfH3r4M8kwt87XVPCtt7MY7OgV7ZyUg+ch6I6Jig==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/user/resend/code",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"resend",
+								"code"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "Notification List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer STnoyrRVYEXfrft/w5IfL3Ci8wl0CTnVehlNGbXx9lPMq7ia41897tx2EXeBIPnCPjvC8VeyxOr+9DodAst9e35JRzRaLGJNcOvayPynS0NDb6Je03j3XsTRrjRq28qypTQPN5bjYZ7ZVN5EUm6M9r8Bs2EIEtfohXLtB+PUvgs425BtZbwAKa+Y9n9ekjdZeHedWmnLe4W9mfOj/C68I3+VrM+mnigfXEmCLgwjxQ8ApupH45C/dFEc6KHyTXPh2A8HLW6ngy9fWfTbnQYyX2fQYvJVO1gHnte8wi4QvSN3jl07ckDHdgpBTwwme2QQwlh8M8MclQAt5feCjLEG4o7K9PkcuGh+cT+ObdQPX1wwlVtQw3/fZRWALvV1I/whOcfRuBDQ3zuz3XCVysJbyg16F67OKdcCRGObhHUarnQi6+izbiZk9LQCvKntE7Nx5yuOJigD860mDxAr3JZnVAoGIdF+vuhU/uOqMowgCYaxiuX5258Tcfgv37RNRFKGmQgrGrScChwTdzHmuXw8Hz7TpiOMoxwhWVVdMaTTSrn2rOEfH3r4M8kwt87XVPCtt7MY7OgV7ZyUg+ch6I6Jig==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/notification",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"notification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@yopmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Admin@123$",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/login",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "retrocube@yopmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/user/forgot-password",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"user",
+										"forgot-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "123456789",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer U2FsdGVkX1976PBWWlRHCYt74NO+55h9hTp068p8yg50OtmC4pVB6427pnI+HRSWGwsxvcjDM7zYIIyYQdJsw2UiV00Bc3ZwiE1g7sX3j2J7jodw5CFR4sBs8gumuemBQe01DLTcx1O+QldmM0UmWQE00G26YWol8njJwoaH0RNGaDBQvr03Xlw7KWTJJ+vVnC+sg4yUIkEviEKQgQVBD3+9OqQyWHR5hRWsFmN79nXVaAJdWEKSFvH5z5ezhlezAJJkjTvac0CNaH6xoDN5aq6MDDTfhc005zGwRYH7JsyJqZCFfCX8/vlPBWLxS1I66EsZFPrgqGv7YWcWE6McmbNsd19tW4zHQh7CB5mA0pQwARQeEEhK7tL4hd1KcGsrl0IFJ9nO/wlh07fpDJy7W3YiGyxPM9LQ+V40Nj3TKxYWkExyBXXifW6S3F4fpwAeUKF4vxkZS8t6oP1HiQ+lgUArxit+pcQF6pMOGNU0nUwn7kZU4Ot2zNrTNdnar9gLKafrdGyJcZiq10Ek0mvrTBlutlA6MFhat3t7a/AveTNWxYYXz8v+IvPuUesVSzgNVoucx6dVDzEaMPp/4/HDz/jojxLknJiOn4rT67l33xo=",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "raza nasir",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image_url",
+											"type": "file",
+											"src": "/home/ali/Pictures/blue-poisonous-frogs-image.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/user/retrocube",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"user",
+										"retrocube"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Record By Slug",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "350ddf1be22ce4f4dd5c84652951dac2xAMoU9Rgem/KX5q/tK3Kf71wTy0n+Iml+0eZH1W1skGpVxVcNwMFiVifh5zviQ+O",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/user/retrocube",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"user",
+										"retrocube"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token",
+										"value": "12345678",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "769882e1e5b52c713a7f0285bb92e85bjUUPXh3RdFEPrs7ziquXZ/5asYz49Go4HDpa31/hqVu2OPsjsRzrJvIJ7dIXhuyo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "raza nasir",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image_url",
+											"type": "file",
+											"src": "/home/ali/Pictures/blue-poisonous-frogs-image.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/user/ali-raza1357",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"user",
+										"ali-raza1357"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "12345678",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "6fdc52f17f0afbc1e612c735c376268191T30e4PH2Of6q4cG7Eq0IU1Dp1p6MMr4Me8ORb3RvcRTO2J5Jj4OrHxLBJad6cy",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "Admin@123$",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "Admin@123",
+											"type": "text"
+										},
+										{
+											"key": "confirm_password",
+											"value": "Admin@123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/user/change-password",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"user",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cms Role",
+					"item": [
+						{
+							"name": "Create Role",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer U2FsdGVkX18wzv8VY18x3JW5acIqUAMsHvdjWYhHXOnT3HxJ1PEojlrytkhpYW++5IP+lEmy95NYxLi1mSKJpNYg5dI1czLEMVn8ByhKAyPTQO8EJbicM+pjbUx8rAFE0WCSDKVpIsNl28ST7eMXGTWfarqpZXMGmaUGIWKZTDod/dRxY8xnQ4/EHG3E3clRQFJjaJgi72hmKlFOr9SkJ667xRRJHAWHATHltN5/iwFZUtdZ3Jvzrk6rKyUWuoWCdfN4H7rO1qNIssyjmg9WC5O0c7VXxrKw5u/ALyUjMSjCWJ3bzTrLTJzJhiZ871MFsGbjoAN1Es/URVbSDmEwgmmkwIubQEZb/PqKpB+pyu/3/eYUeJicT9V9XnmGfySwRnGOmOSfMfqDOUvTPmzg+E/tkmPukdseXxNKc6Gd9E6rJjQmXdoTNvMjOy9tQkDXMj7S+mOVovktQIzEr7gvMgIrcO6VQ0YgZ4bjTjFaqc5hCtL3pMW1UzlNiAKPn3Jv1BiZCJ6UJ4y1zM3jpobx2FeyKcsjrmE7ad1o7OWHgfbRRx2z3ZppMqyiHuPPdGvB9Xh0BEJ/hCHSu0OJidBp2T6CyxiTMO5+7xpn+1IvJ+E=",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Testss",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "is_super_admin",
+											"value": "0",
+											"description": "required = 0, 1",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622f7e0dbb9cef50c16cce02][is_add]",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "module_id[622f7e0dbb9cef50c16cce02][is_view]",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "module_id[622f7e0dbb9cef50c16cce02][is_delete]",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "module_id[622f7e0dbb9cef50c16cce02][is_update]",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "module_id[622f7e0dbb9cef50c16cce03][is_add]",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "module_id[622f7e0dbb9cef50c16cce03][is_view]",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "module_id[622f7e0dbb9cef50c16cce03][is_delete]",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "module_id[622f7e0dbb9cef50c16cce03][is_update]",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-role",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-role"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Cms Role",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer U2FsdGVkX1/PG+3Jtr7YHxJNgIt5Zs/tQKflHiA/hwcyiXN/0iDFgObsAcooeiKUoK4m/IsKXcV/wjoL4VQbn4xXcSqPqY+dtaWEbtpO3edWLJjYxFCH18eEtG0Tt/fuaJ9uzjMKQwd+1cKleO7uMUfvPPWIJ/tgwY1JOrej7CimqTGRckbIHfeHSv2AkemzXPA3Y/I6mCbs+9/lQLy3kn3XteSH615POCGlLBSeEtRK088SeqTj/nbOoq4D3QruZ15f3HwVT9mYvYAxZCvlVA8nXpSpmby3XhogWH5OEaHPXm3HZSYYkKoo0bjT+Acg1FYLzKj7dq+sf0diNLvpdo3U23DTaF/qtYGT7PzRbNLji43NB1z0TsLrDMSG2JCFBSKWz4/BRjuz+eOQ4/VNghr+QuZX17PZwC/dpMPfqKrf4NhZNUf5qCIAQLZzCst0+0Bh1GGpCVqhhFHdMuHdrMI0Vnf3sy9q4JEoDKw1IDPnhG9T6T16dAa2WZlrmqcCDW3sCtuOBxJravYCQPtvcTr2oXSJUEoCQhYxV/xxuqkC79lSwvuSWImzl87J72QHLFe8DSuf1hLk5akf7pRooQ==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-role?keyword=R&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-role"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "R"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Cms Role By Slug",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer U2FsdGVkX18wzv8VY18x3JW5acIqUAMsHvdjWYhHXOnT3HxJ1PEojlrytkhpYW++5IP+lEmy95NYxLi1mSKJpNYg5dI1czLEMVn8ByhKAyPTQO8EJbicM+pjbUx8rAFE0WCSDKVpIsNl28ST7eMXGTWfarqpZXMGmaUGIWKZTDod/dRxY8xnQ4/EHG3E3clRQFJjaJgi72hmKlFOr9SkJ667xRRJHAWHATHltN5/iwFZUtdZ3Jvzrk6rKyUWuoWCdfN4H7rO1qNIssyjmg9WC5O0c7VXxrKw5u/ALyUjMSjCWJ3bzTrLTJzJhiZ871MFsGbjoAN1Es/URVbSDmEwgmmkwIubQEZb/PqKpB+pyu/3/eYUeJicT9V9XnmGfySwRnGOmOSfMfqDOUvTPmzg+E/tkmPukdseXxNKc6Gd9E6rJjQmXdoTNvMjOy9tQkDXMj7S+mOVovktQIzEr7gvMgIrcO6VQ0YgZ4bjTjFaqc5hCtL3pMW1UzlNiAKPn3Jv1BiZCJ6UJ4y1zM3jpobx2FeyKcsjrmE7ad1o7OWHgfbRRx2z3ZppMqyiHuPPdGvB9Xh0BEJ/hCHSu0OJidBp2T6CyxiTMO5+7xpn+1IvJ+E=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-role/testss",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-role",
+										"testss"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Cms Role",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Sub Admin",
+											"type": "text"
+										},
+										{
+											"key": "is_super_admin",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622236e2626b02fe87e1b471][is_add]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622236e2626b02fe87e1b471][is_view]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622236e2626b02fe87e1b471][is_delete]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622236e2626b02fe87e1b471][is_update]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622236e2626b02fe87e1b472][is_add]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622236e2626b02fe87e1b472][is_view]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622236e2626b02fe87e1b472][is_delete]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "module_id[622236e2626b02fe87e1b472][is_update]",
+											"value": "0",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-role/sub-adminsss",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-role",
+										"sub-adminsss"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Cms Role",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-role/sub-adminsss",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-role",
+										"sub-adminsss"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bulk Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-role/delete-record?slug[]=test",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-role",
+										"delete-record"
+									],
+									"query": [
+										{
+											"key": "slug[]",
+											"value": "test"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cms User",
+					"item": [
+						{
+							"name": "Create Cms User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "0e16832170645f284bc95ccf886ad6c1ztuwahzCS2Z6PlNTPXe1UoyER8nWoJESm7KLsW7rBmK0y19bUgc2wxNZgUa4vQb+",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ali Raza",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "ali.raza3@yopmail.com",
+											"type": "text"
+										},
+										{
+											"key": "image_url",
+											"type": "file",
+											"src": "/home/ali/Pictures/out-west-female-hats-cowgirl-wallpaper-preview.jpg"
+										},
+										{
+											"key": "mobile_no",
+											"value": "92-3242744355",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Admin@123",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "622f82cd6b7b055381d788d5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-user",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Cms User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer U2FsdGVkX1/PG+3Jtr7YHxJNgIt5Zs/tQKflHiA/hwcyiXN/0iDFgObsAcooeiKUoK4m/IsKXcV/wjoL4VQbn4xXcSqPqY+dtaWEbtpO3edWLJjYxFCH18eEtG0Tt/fuaJ9uzjMKQwd+1cKleO7uMUfvPPWIJ/tgwY1JOrej7CimqTGRckbIHfeHSv2AkemzXPA3Y/I6mCbs+9/lQLy3kn3XteSH615POCGlLBSeEtRK088SeqTj/nbOoq4D3QruZ15f3HwVT9mYvYAxZCvlVA8nXpSpmby3XhogWH5OEaHPXm3HZSYYkKoo0bjT+Acg1FYLzKj7dq+sf0diNLvpdo3U23DTaF/qtYGT7PzRbNLji43NB1z0TsLrDMSG2JCFBSKWz4/BRjuz+eOQ4/VNghr+QuZX17PZwC/dpMPfqKrf4NhZNUf5qCIAQLZzCst0+0Bh1GGpCVqhhFHdMuHdrMI0Vnf3sy9q4JEoDKw1IDPnhG9T6T16dAa2WZlrmqcCDW3sCtuOBxJravYCQPtvcTr2oXSJUEoCQhYxV/xxuqkC79lSwvuSWImzl87J72QHLFe8DSuf1hLk5akf7pRooQ==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-user",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Cms User By Slug",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-user/ali-raza",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-user",
+										"ali-raza"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Cms User",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer U2FsdGVkX18wzv8VY18x3JW5acIqUAMsHvdjWYhHXOnT3HxJ1PEojlrytkhpYW++5IP+lEmy95NYxLi1mSKJpNYg5dI1czLEMVn8ByhKAyPTQO8EJbicM+pjbUx8rAFE0WCSDKVpIsNl28ST7eMXGTWfarqpZXMGmaUGIWKZTDod/dRxY8xnQ4/EHG3E3clRQFJjaJgi72hmKlFOr9SkJ667xRRJHAWHATHltN5/iwFZUtdZ3Jvzrk6rKyUWuoWCdfN4H7rO1qNIssyjmg9WC5O0c7VXxrKw5u/ALyUjMSjCWJ3bzTrLTJzJhiZ871MFsGbjoAN1Es/URVbSDmEwgmmkwIubQEZb/PqKpB+pyu/3/eYUeJicT9V9XnmGfySwRnGOmOSfMfqDOUvTPmzg+E/tkmPukdseXxNKc6Gd9E6rJjQmXdoTNvMjOy9tQkDXMj7S+mOVovktQIzEr7gvMgIrcO6VQ0YgZ4bjTjFaqc5hCtL3pMW1UzlNiAKPn3Jv1BiZCJ6UJ4y1zM3jpobx2FeyKcsjrmE7ad1o7OWHgfbRRx2z3ZppMqyiHuPPdGvB9Xh0BEJ/hCHSu0OJidBp2T6CyxiTMO5+7xpn+1IvJ+E=",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "test@retrocube.com",
+											"type": "text"
+										},
+										{
+											"key": "mobile_no",
+											"value": "1-1112223222",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Admin@123",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "6236e70b85c0f716da11b294",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-user/test",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-user",
+										"test"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Cms User",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-user/ali-raza",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-user",
+										"ali-raza"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Application Setting",
+					"item": [
+						{
+							"name": "Save Application Setting",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "U2FsdGVkX19z0a/kyZJ2Bn31uAXShgJQdJNQKPLHuaqQwRClSjyI2VVhrhuf0WJsHTZQ4MiAZ7sk9m46Z1Zgh64QvO0et5a1UqDOxSLK41jxnGwQt9olA3hSGrvfXjwunXS7ieH5aobmgPNUr0kYaRkEomDiXRqjO0lk4L/rnI+yIXyYg8QDbKgB6/kpPWQkkQ7/3tnf7AEVEcWikXQvRf3p9DbsLRBNVGDpj2chdEPxDb0KbYHAcoSw6M4yqw+OH4eSNvWPt0LA2qUD9cwZ83DiwykRi+n+rJFFPQRjRAp+mzILzE05MwHHqqPERbc1nIwHSofgIaRprF4PCs+h+kGqXLmiYRf9aEmSJcYPl5RAYiufBDUi4aFOkPijN4aWfLhw+lzL4Vflw6raKSgnrw4pOvsj/WC/rAQ0YW6LfQpeJMJL592zxBZ0RRrm5bYKTud8wK1y1EDNdSvE8vNLmR9GE6n9YAvzd0yf7BjHuAjBC1JTMdf/nwnMuGzjXTG5fdchokT3PIbSBa67j7oc23HP8/+aqTnJlxQBABKnMDb3Qg0pTjP7chv4ErvKYTT1ujJv0QGL/CLSRUBjE7HMu/wHobYFaNmpxqmxigLQp8k=",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "app_name",
+											"value": "AdonisJS",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/home/ali/Pictures/logo.png"
+										},
+										{
+											"key": "favicon",
+											"type": "file",
+											"src": "/home/ali/Pictures/favicon.png"
+										},
+										{
+											"key": "meta_keyword",
+											"value": "testing",
+											"type": "text"
+										},
+										{
+											"key": "meta_description",
+											"value": "testing",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/application-setting",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"application-setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Application Setting By Slug",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/application-setting/app_setting",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"application-setting",
+										"app_setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Faq",
+					"item": [
+						{
+							"name": "Create Faq",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "question",
+											"value": "Testing",
+											"type": "text"
+										},
+										{
+											"key": "answer",
+											"value": "testing",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/faq",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"faq"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Faq",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer U2FsdGVkX1/PG+3Jtr7YHxJNgIt5Zs/tQKflHiA/hwcyiXN/0iDFgObsAcooeiKUoK4m/IsKXcV/wjoL4VQbn4xXcSqPqY+dtaWEbtpO3edWLJjYxFCH18eEtG0Tt/fuaJ9uzjMKQwd+1cKleO7uMUfvPPWIJ/tgwY1JOrej7CimqTGRckbIHfeHSv2AkemzXPA3Y/I6mCbs+9/lQLy3kn3XteSH615POCGlLBSeEtRK088SeqTj/nbOoq4D3QruZ15f3HwVT9mYvYAxZCvlVA8nXpSpmby3XhogWH5OEaHPXm3HZSYYkKoo0bjT+Acg1FYLzKj7dq+sf0diNLvpdo3U23DTaF/qtYGT7PzRbNLji43NB1z0TsLrDMSG2JCFBSKWz4/BRjuz+eOQ4/VNghr+QuZX17PZwC/dpMPfqKrf4NhZNUf5qCIAQLZzCst0+0Bh1GGpCVqhhFHdMuHdrMI0Vnf3sy9q4JEoDKw1IDPnhG9T6T16dAa2WZlrmqcCDW3sCtuOBxJravYCQPtvcTr2oXSJUEoCQhYxV/xxuqkC79lSwvuSWImzl87J72QHLFe8DSuf1hLk5akf7pRooQ==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/faq",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"faq"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Faq By Slug",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/faq/1647087449866",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"faq",
+										"1647087449866"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Faq",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "question",
+											"value": "testingss",
+											"type": "text"
+										},
+										{
+											"key": "answer",
+											"value": "testingss",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/faq/1647087449866",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"faq",
+										"1647087449866"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Faq",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "1234567890",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "120ebc1e064ca0a52c078a99c1f67e1bAC2SRRq4J2StSzvE4TvNFEDCme8MJnlzjIP0zkjSHy4J8OfSxrAxWlJ143IWYZBK",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/faq/1647087449866",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"faq",
+										"1647087449866"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Application Content",
+					"item": [
+						{
+							"name": "Create Content",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "0e16832170645f284bc95ccf886ad6c1ztuwahzCS2Z6PlNTPXe1UoyER8nWoJESm7KLsW7rBmK0y19bUgc2wxNZgUa4vQb+",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "slug",
+											"value": "terms-conditionss",
+											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/application-content",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"application-content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Content",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "0e16832170645f284bc95ccf886ad6c1ztuwahzCS2Z6PlNTPXe1UoyER8nWoJESm7KLsW7rBmK0y19bUgc2wxNZgUa4vQb+",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/application-content",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"application-content"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Content By Slug",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "0e16832170645f284bc95ccf886ad6c1ztuwahzCS2Z6PlNTPXe1UoyER8nWoJESm7KLsW7rBmK0y19bUgc2wxNZgUa4vQb+",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/application-content/terms-conditions",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"application-content",
+										"terms-conditions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Content",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "0e16832170645f284bc95ccf886ad6c1ztuwahzCS2Z6PlNTPXe1UoyER8nWoJESm7KLsW7rBmK0y19bUgc2wxNZgUa4vQb+",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "content",
+											"value": "testssssssssssssssssssss",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/application-content/terms-conditionss",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"application-content",
+										"terms-conditionss"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Content",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "0e16832170645f284bc95ccf886ad6c1ztuwahzCS2Z6PlNTPXe1UoyER8nWoJESm7KLsW7rBmK0y19bUgc2wxNZgUa4vQb+",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/application-content/terms-conditionss",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"application-content",
+										"terms-conditionss"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cms Modules",
+					"item": [
+						{
+							"name": "Get Cms Modules",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "api.Pd*!(5675",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer U2FsdGVkX1/PG+3Jtr7YHxJNgIt5Zs/tQKflHiA/hwcyiXN/0iDFgObsAcooeiKUoK4m/IsKXcV/wjoL4VQbn4xXcSqPqY+dtaWEbtpO3edWLJjYxFCH18eEtG0Tt/fuaJ9uzjMKQwd+1cKleO7uMUfvPPWIJ/tgwY1JOrej7CimqTGRckbIHfeHSv2AkemzXPA3Y/I6mCbs+9/lQLy3kn3XteSH615POCGlLBSeEtRK088SeqTj/nbOoq4D3QruZ15f3HwVT9mYvYAxZCvlVA8nXpSpmby3XhogWH5OEaHPXm3HZSYYkKoo0bjT+Acg1FYLzKj7dq+sf0diNLvpdo3U23DTaF/qtYGT7PzRbNLji43NB1z0TsLrDMSG2JCFBSKWz4/BRjuz+eOQ4/VNghr+QuZX17PZwC/dpMPfqKrf4NhZNUf5qCIAQLZzCst0+0Bh1GGpCVqhhFHdMuHdrMI0Vnf3sy9q4JEoDKw1IDPnhG9T6T16dAa2WZlrmqcCDW3sCtuOBxJravYCQPtvcTr2oXSJUEoCQhYxV/xxuqkC79lSwvuSWImzl87J72QHLFe8DSuf1hLk5akf7pRooQ==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/cms-module",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"cms-module"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Test Push Notification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "U2FsdGVkX19R0VPm6xe5y0J4dIbcc6LpK0Wi1xFbeExK8Qeo+NsZGZf+oQZbtcKbuaeL8Wel+4kB/KqUUUHmAw==",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer STnoyrRVYEXfrft/w5IfL3Ci8wl0CTnVehlNGbXx9lPMq7ia41897tx2EXeBIPnCPjvC8VeyxOr+9DodAst9e35JRzRaLGJNcOvayPynS0NDb6Je03j3XsTRrjRq28qypTQPN5bjYZ7ZVN5EUm6M9r8Bs2EIEtfohXLtB+PUvgs425BtZbwAKa+Y9n9ekjdZeHedWmnLe4W9mfOj/C68I3+VrM+mnigfXEmCLgwjxQ8ApupH45C/dFEc6KHyTXPh2A8HLW6ngy9fWfTbnQYyX2fQYvJVO1gHnte8wi4QvSN3jl07ckDHdgpBTwwme2QQwlh8M8MclQAt5feCjLEG4o7K9PkcuGh+cT+ObdQPX1wwlVtQw3/fZRWALvV1I/whOcfRuBDQ3zuz3XCVysJbyg16F67OKdcCRGObhHUarnQi6+izbiZk9LQCvKntE7Nx5yuOJigD860mDxAr3JZnVAoGIdF+vuhU/uOqMowgCYaxiuX5258Tcfgv37RNRFKGmQgrGrScChwTdzHmuXw8Hz7TpiOMoxwhWVVdMaTTSrn2rOEfH3r4M8kwt87XVPCtt7MY7OgV7ZyUg+ch6I6Jig==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "target_id",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}api/send-notification",
+					"host": [
+						"{{base_url}}api"
+					],
+					"path": [
+						"send-notification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

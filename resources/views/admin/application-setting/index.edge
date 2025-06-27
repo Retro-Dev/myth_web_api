@@ -1,0 +1,66 @@
+@layout('admin/master')
+@section('content')
+  <section class="main-content">
+    <div class="row">
+        <div class="col-sm-12">
+            @if(hasErrorFor('errors'))
+              @!component('admin.flash-errors', {errors: getErrorFor('errors')})
+            @endif
+            @if(hasErrorFor('error'))
+              @!component('admin.flash-error', error = getErrorFor('error') )
+            @endif
+            @if(flashMessage('success'))
+              @!component('admin.flash-success', success = flashMessage('success') )
+            @endif
+            <div class="card">
+                <div class="card-header card-default">
+                    Application Setting
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {{ csrfField() }}
+                        <div class="form-group">
+                            <label>Application Name</label>
+                            <input type="text" required value="{{ applicationSetting.application_name }}" name="app_name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Logo</label>
+                            <input type="file" name="logo" class="form-control">
+                            <input type="hidden" name="old_logo" value="{{ applicationSetting.logo }}">
+                            @if( applicationSetting.logo )
+                              <div style="margin:10px 0;width:200px; height: 100px;">
+                                  <img style="width:100%;height:100%;object-fit:contain;" src="{{ assetsUrl(applicationSetting.logo) }}">
+                              </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label>Favicon</label>
+                            <input type="file" name="favicon" class="form-control">
+                            <input type="hidden" name="old_favicon" value="{{ applicationSetting.favicon }}">
+                            @if( applicationSetting.favicon )
+                              <div style="margin:10px 0;width:60px; height: 60px;">
+                                  <img style="width:100%;height:100%;object-fit:contain;" src="{{ assetsUrl(applicationSetting.favicon) }}">
+                              </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label>Meta keyword</label>
+                            <textarea name="meta_keyword" class="form-control">{{ applicationSetting.meta_keyword }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Meta Description</label>
+                            <textarea name="meta_description" class="form-control">{{ applicationSetting.meta_description }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="buttons">
+                                <button class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('admin.footer')
+  </section>
+@endsection
